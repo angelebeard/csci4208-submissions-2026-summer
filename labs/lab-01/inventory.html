@@ -1,0 +1,36 @@
+<html>
+
+    <head> </head>
+
+    <body>
+        Inventory: <hr>
+        <table> <!-- Table with Inventory -->
+            <tr>
+                <th> &#128176; </th> <!-- Money Emoji -->
+                <th> &#128156; </th> <!-- Heart Emoji -->
+                <th> &#128481; </th> <!-- Sword Emoji -->
+                <th> &#128273; </th> <!-- Key Emoji -->
+            </tr>
+
+            <tr>
+                <td id='gp'>5</td>
+                <td id='hp'>3</td>
+                <td id='ap'>1</td>
+                <td id='keys'>0</td>
+            </tr>
+
+        </table>
+
+    <script> // A script statement is used to perform javaScript code, used for 
+             // the behaviour of the web application.
+        // Query String to pass inventory data to the next window.
+        var queryString = new URLSearchParams(location.search);
+        gp.innerText = queryString.get("gp");
+        hp.innerText = queryString.get("hp");
+        ap.innerText = queryString.get("ap");
+        keys.innerText = queryString.get("keys");
+    </script>
+
+    </body>
+
+<html>
