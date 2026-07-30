@@ -1,0 +1,11 @@
+{
+  "name": "void-runner",
+  "version": "1.0.0",
+  "description": "Thick-client Canvas dodger SPA — CSCI 4208 capstone (Games/Entertainment track).",
+  "type": "module",
+  "scripts": {
+    "dev": "npx http-server . -p 8080 -c-1",
+    "start": "npx http-server . -p 8080 -c-1"
+  },
+  "license": "MIT"
+}

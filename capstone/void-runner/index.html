@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Void Runner — dodge, drift, survive</title>
+<meta name="description" content="A browser-native asteroid dodger with daily challenges and a global leaderboard." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <div id="app" class="app">
+
+    <!-- Persistent instrument HUD (shown only during play) -->
+    <header id="hud" class="hud" hidden>
+      <div class="hud__cluster hud__cluster--left">
+        <div class="hud__stat">
+          <span class="hud__label">score</span>
+          <span class="hud__value" id="hud-score">0</span>
+        </div>
+        <div class="hud__stat">
+          <span class="hud__label">best</span>
+          <span class="hud__value" id="hud-best">0</span>
+        </div>
+      </div>
+      <div class="hud__radar" id="hud-radar" aria-hidden="true">
+        <canvas id="radar-canvas" width="120" height="120"></canvas>
+      </div>
+      <div class="hud__cluster hud__cluster--right">
+        <div class="hud__stat">
+          <span class="hud__label">combo</span>
+          <span class="hud__value" id="hud-combo">x1</span>
+        </div>
+        <div class="hud__stat">
+          <span class="hud__label">hull</span>
+          <span class="hud__value" id="hud-lives">●●●</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- View mount point: Router swaps content here -->
+    <main id="view-root" class="view-root" aria-live="polite"></main>
+
+    <!-- Global toast stack for loading/empty/error/success states -->
+    <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
