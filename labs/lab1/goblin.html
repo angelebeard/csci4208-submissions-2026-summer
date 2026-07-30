@@ -1,0 +1,55 @@
+<html>
+    <head> 
+        <title> Adventure Game</title>
+        <link rel="icon" href="assets/dragon-logo.png">
+    </head>
+    <body>
+        <h1> Hills </h1>
+        <hr>
+        <img id = 'goblin' src="assets/goblin.gif" width="480">
+        <p id ='battleText'> Goblin ambush! You're threatened by a goblin! </p>
+        <h4> What do you do?</h4>
+        <div id ='options'>
+            <button id="fight()">Fight> Fight </button>
+            <a id="forest" herf="forest.html">
+                <button> Retrate</button>
+            </a>
+        </div>
+        <hr>
+        <iframe src="inventory.html" id="inventory" height="100" width="125"></iframe>
+        <script>
+            inventory.src += location.search;   
+            forest.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var gp  = +queryString.get('gp');
+            var hp = +queryString.get('hp');
+            var ap = +queryString.get('ap');
+            var goblinHp = 3; goblinAp = 2;
+        
+            function attack() {
+                goblinHp -= ap;
+                if (goblinHp <= 0) {
+                    goblin.src = 'assets/treasure.gif';
+                    queryString.set('gp', gp + 3);
+                    queryString.set('hp', hp);
+                    inventory.src = 'inventory.html?' + queryString;
+                    battleText.innerHTML = 'You defeated the goblin! You found 3 gold'
+                    options.innerHTML = '<a href="forest.html?' + queryString + '"> <button> Continue </button> </a>';
+                
+                } 
+                else {
+                    hp -= goblinAp;
+                    queryString.set('hp', hp);
+                    inventory.src = 'inventory.html?' + queryString;
+                    battleText.innerHTML = 'You hit for ' + ap + ' damage it has ' + goblinHp + ' hp left.' + '<br>' + 'Yout take ' + goblinAp + ' damage.';
+                }
+                if (hp <= 0) {
+                    battleText.innerHTML = 'You Died.';
+                    options.innerHTML = '<a href="overworld.html"> <button> Game Over </button> </a>'; 
+                }
+            }
+        </script>
+                
+    </body>
+</html>
